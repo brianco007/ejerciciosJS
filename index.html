@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
     <title>Ejercicios Javascript</title>
 </head>
-<body style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #222;color: #fff;">
-    <h1 style="font-size: 3rem;">Ejercicios Javascript</h1>
+<body >
 
-    <script src="ejercicios.js"></script>
+    <header id="top">
+        <nav>
+            <h2 id="title">Java<span>Script</span></h2>
+        </nav>
+        <div class="navbar">
+            <a href="#" class="link">Item</a>
+            <a href="#" class="link">Item</a>
+            <a href="#" class="link">Item</a>
+            <a href="#" class="link">Item</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 style="font-size: 3rem;">Ejercicios Javascript</h1>
+        </div>
+    </main>
+
+    <section id="cards">
+        
+    </section>
+
+
+    <form id="form">
+        <h2>Formulario</h2>
+        <label>
+            Escriba la temperatura en grados Fahrenheit:
+            <input type="text" name="temp" placeholder="°F" >
+        </label>
+        <input type="submit">
+        <h2 id="message"></h2>
+    </form>
+    
+
+    <script src="scripts/ejercicios.js"></script>
 </body>
 </html>
