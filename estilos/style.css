@@ -6,7 +6,6 @@
 }
 
 body{
-  height: 300vh; 
   background-color: #ececec;
   color: #fff; 
   flex-direction: column;
@@ -18,37 +17,44 @@ header{
   height: 70px;
   display: flex;
   align-items: center;
-  justify-content: center;
   position: fixed;
   width: 100%;
   z-index: 5;
   background-color: #222;
+  transition: all 1s;
 }
+
+
 
 nav{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 nav h2{
   color: #fff;
+  transition: all 1s;
 }
 
 .navbar a {
-  color: #fff;
   text-decoration: none;
   margin-left: 10px;
+  transition: all 1s;
 }
+
+/*main*/
 main{
-  height: 500px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .container{
+  width: clamp(250px, 90%, 600px);
   padding: 30px;
   display: flex;
   justify-content: center;
@@ -58,6 +64,7 @@ main{
   max-width: 500px;
   margin: 0 auto;
   z-index: -1;
+  text-align: center;
 }
 
 .container::before{
@@ -90,35 +97,134 @@ main{
   inset: 1px;
 }
 
-form{
-  padding: 25px;
-  border: 1px solid;
-  width: 50%;
+
+
+#cards{
+  display: grid;
+  width: 90%;
   margin: 0 auto;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+}
+
+.card{
   display: flex;
-  flex-direction: column;
-  gap: 25px;
   text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid darkturquoise;
+  padding: 20px;
+  gap: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.card:hover{
+  box-shadow: 0 0 15px darkturquoise;
+  transform: scale(1.02);
+}
+
+.card h4{
+  font-size: 2rem;
   color: darkturquoise;
 }
 
-label{
-  font-size: 1.2rem;
+.card h3{
+  color: darkturquoise;
+}
 
+button {
+  padding: 7px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.1rem;
+  color: #222;
+  background-color: darkturquoise;
+}
+
+/*ADIVINA EL NÚMERO*/
+form{
+  border: 1px solid darkturquoise;
+  padding: 25px;
+  width: clamp(250px, 90%, 600px);
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  font-size: 1.3rem;
 }
 
 form input{
-  width: 90%;
-  padding: 10px;
   font-size: 1.2rem;
   border: none;
   outline: none;
+  padding: 7px 14px;
 }
 
-form input[type= 'submit']{
-  align-self: center;
-  width: 30%;
+form input[type = submit]{
+  width: 40%;
   cursor: pointer;
+}
+
+form a{
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 7px 14px;
   background-color: darkturquoise;
-  color: white;
+}
+
+/*RANDOM PROFILE*/
+.user-card{
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid darkturquoise;
+  align-items: center;
+  gap: 15px;
+  width: clamp(250px, 90%, 400px);
+  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 1.3rem;
+}
+
+#spinner{
+  width: 50px;
+  height: 50px;
+  border: 7px solid white;
+  border-radius: 50%;
+  border-top: 7px solid #222;
+  animation: rotate .4s infinite linear; 
+}
+@keyframes rotate{
+  to{
+    transform: rotate(360deg);
+  }
+}
+.hide{
+  display: none;
+}
+
+/*RANDOM DOG PICTURE*/
+
+.randomPic{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: clamp(250px, 90%, 400px);
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.randomPic img{
+  border-radius: 20px;
+  box-shadow: 4px 4px 20px lightgrey;
+  transition: .4s;
+}
+.randomPic img:hover{
+  transform: scale(1.02);
 }

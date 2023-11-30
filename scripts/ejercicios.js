@@ -1,10 +1,22 @@
 'use strict'; // agregar modo estricto
+import { lighting } from '../modulos/lighting.js';
+import { helloWorld } from '../modulos/helloWorld.js';
+import { adivinarNumero } from '../modulos/adivinarNumero.js';
+import { perfilFalso } from '../modulos/perfilFalso.js';
+import { fotoPerro } from '../modulos/fotoPerro.js';
+
+helloWorld();
+lighting();
+adivinarNumero();
+perfilFalso();
+fotoPerro();
 
 const ejercicios = [
     {   
         id: 1,
         tema: 'condicionales',
-        descripcion: 'Leer nombre y apellido, saludar por nombre y apellido. Si el usuario no ingresa ningún dato, saludar hola desconocido'
+        descripcion: 'Leer nombre y apellido, saludar por nombre y apellido. Si el usuario no ingresa ningún dato, saludar hola desconocido',
+        
     },
     {   
         id: 2,
@@ -14,26 +26,54 @@ const ejercicios = [
     {   
         id: 3,
         tema: 'condicionales',
-        descripcion: 'Leer nombre y edad, Mostrar si es o no mayor de edad'
+        descripcion: 'Leer nombre y edad, Mostrar si es o no mayor de edad.'
     },
+    {   
+        id: 4,
+        tema: 'condicionales',
+        descripcion: 'Leer un rol, (admin, ventas, cliente), acceso de acuerdo al rol.'
+    },
+    {   
+        id: 5,
+        tema: 'operadores',
+        descripcion: 'Leer un número, mostrar el doble de n.'
+    },
+    {   
+        id: 6,
+        tema: 'operadores',
+        descripcion: 'Leer un número, mostrar la mitad de n.'
+    },
+
 ]
 
 const cards = document.getElementById('cards');
-const $div = document.createElement('div');
 
-$div.setAttribute('class', 'card');
-cards.appendChild($div);
 let contenidoCard = '';
 
-// ejercicios.forEach(ej => {
-//     contenidoCard += `<h3>${ej.id}</h3> `
-// })
+
+ejercicios.forEach(ej => {
+    const $div = document.createElement('div');
+    $div.className += 'card ';
+    cards.appendChild($div);
+
+    contenidoCard = `
+        <h4> ${ej.id} </h4>
+        <h3> ${ej.tema} </h3>
+        <p> ${ej.descripcion} </p>
+        <button> Ejecutar </button>
+    `
+    $div.innerHTML = contenidoCard
+})
 
 
 
-$div.innerHTML = contenidoCard;
 
-/* Ejercicio 1: Leer nombre y apellido, saludar por nombre y apellido.
+
+
+
+
+
+//Ejercicio 1: Leer nombre y apellido, saludar por nombre y apellido.
 
 // function saludarUsuario (nombre, apellido){
 //   document.write (`Hola ${nombre} ${apellido} " Bienvenid@"` );
@@ -67,7 +107,7 @@ $div.innerHTML = contenidoCard;
 /*Ejercicio 4: Leer un rol, (admin, ventas, cliente), acceso de acuerdo al rol.
 
 // function acceso (rol){
-//   if (rol == 'administracion') {
+//   if (rol == 'admin') {
 //     alert('Bienvenido administrador(a)');
 //   } 
 //   else if (rol == 'ventas'){
@@ -159,32 +199,7 @@ $div.innerHTML = contenidoCard;
 //Ejercicio 11: Leer dos números, mostrar la suma dividido en la resta.
 
 
-const links = document.querySelectorAll('.link');
 
-
-
-
-window.addEventListener('scroll', ()=>{
-    const verticalScroll = window.scrollY;
-
-    if(verticalScroll > 75){ 
-        links.forEach(link => {
-            link.style.color = 'darkturquoise';
-        });
-        document.getElementById('top').style.boxShadow = '0 0 20px darkturquoise';
-        document.getElementById('title').style.color = 'darkturquoise';
-        
-             
-    } else {
-        document.getElementById('top').style.boxShadow = '0 0 0';
-        document.getElementById('title').style.color = 'white'
-        document.getElementById('title').style.textShadow = '0 0 0';
-        links.forEach(link => {
-            link.style.color = 'white';
-            link.style.textShadow = '0 0 0';
-        });
-    }
-})
 
 // 1 Pedir un número y mostrar los números pares desde 1 hasta n.
 // function obtenerPares(num){
@@ -273,19 +288,3 @@ window.addEventListener('scroll', ()=>{
 // }
 // tablaDeMultiplicar(prompt('Escriba un número: '))
 
-const form = document.getElementById('form');
-const message = document.getElementById('message');
-
-
-
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(form.temp.value === ""){
-        message.textContent = "Por favor, escriba la temperatura.";
-    }else{
-        const conversion = ((form.temp.value - 32)*5/9).toFixed(2)
-        message.textContent = `${form.temp.value} grados Fahrenheit en Celsius es ${conversion}`;
-        form.temp.value = "";
-
-    }
-})

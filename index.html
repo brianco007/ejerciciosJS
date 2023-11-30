@@ -8,16 +8,16 @@
 </head>
 <body >
 
-    <header id="top">
+    <header  class= "lights" id="top">
         <nav>
-            <h2 id="title">Java<span>Script</span></h2>
+            <h2 id="title" class="lights">Java<span>Script</span></h2>
+            <div class="navbar">
+                <a href="#" class="lights">Todos</a>
+                <a href="#" class="lights">Condicionales</a>
+                <a href="#" class="lights">Operadores</a>
+                <a href="#" class="lights">Ciclos</a>
+            </div>
         </nav>
-        <div class="navbar">
-            <a href="#" class="link">Item</a>
-            <a href="#" class="link">Item</a>
-            <a href="#" class="link">Item</a>
-            <a href="#" class="link">Item</a>
-        </div>
     </header>
 
     <main>
@@ -30,18 +30,28 @@
         
     </section>
 
-
     <form id="form">
-        <h2>Formulario</h2>
-        <label>
-            Escriba la temperatura en grados Fahrenheit:
-            <input type="text" name="temp" placeholder="°F" >
-        </label>
-        <input type="submit">
-        <h2 id="message"></h2>
+        <h4>Adivina el número que está pensando el PC. Es un número del 1 al 20. Tienes 5 intentos para adivinar.</h4>
+        <h3 id="intentos">N° de intentos: 5</h3>
+        <input type="text" name="numero" id="entrada">
+        <input type="submit" id="submitBtn">
+        <h3 id="comentario"></h3>
     </form>
-    
 
-    <script src="scripts/ejercicios.js"></script>
+
+    <div class="user-card">
+        <button id="fetchBtn">Click para ver un nuevo usuario</button>
+        <div id="spinner" class="hide"></div>
+        <img class="info ">
+        <p class="info"></p>
+        <p class="info"></p>
+    </div>
+    
+    <div class="randomPic">
+        <img id="dogPic">
+        <button id="randomPicBtn">Foto de perro</button>
+    </div>
+
+    <script src="scripts/ejercicios.js" type="module" ></script>
 </body>
 </html>
