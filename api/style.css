@@ -92,7 +92,7 @@ main{
 }
 
 /*Error message*/
-/* #errorMsg{
+#errorMsg{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,17 +104,19 @@ main{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, .7);
+  background-color: var(--yellow);
   color: #fff;
+  height: 100vh;
+  width: 100vw;
 }
 #errorMsg img{
-  width: 100%;
+  width: 40%;
   height: auto;
 }
 
 #errorMsg.ocultar{
   display: none;
-} */
+}
 
 
 

@@ -39,7 +39,7 @@ async function pokeApi(){
       respuesta = await respuesta.json();
       mostrarNombres(respuesta.results);
   } catch (error) {
-      console.log(error)
+      errorMsg.classList.toggle('ocultar')
   } finally { 
     spinner.classList.toggle('hide'); 
   }
