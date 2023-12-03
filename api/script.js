@@ -6,29 +6,29 @@ let URL = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
 let contador = 0;
 const spinner = document.getElementById('spinner');
 const errorMsg = document.getElementById('errorMsg');
-const pokemonName = document.getElementById('pokemonName');
 const pokeCards = document.getElementById('pokeCards');
 const listado = document.getElementById('listado');
+
 
 
 /* NEXT 20 */
 const nextBtn = document.getElementById('nextBtn');
 nextBtn.addEventListener('click', ()=>{
-  contador += 20;
-  URL = `https://pokeapi.co/api/v2/pokemon?offset=${contador}&limit=20`
+  counter += 20;
+  URL = `https://pokeapi.co/api/v2/pokemon?offset=${counter}&limit=20`
   pokeApi();
-  disable(contador);
-  indiceListado(contador);
+  disable(counter);
+  indiceListado(counter);
 });
 
 /* PREVIOUS 20 */
 const previousBtn = document.getElementById('previousBtn');
 previousBtn.addEventListener('click', ()=>{
-  contador -= 20;
-  URL = `https://pokeapi.co/api/v2/pokemon?offset=${contador}&limit=20`
+  counter -= 20;
+  URL = `https://pokeapi.co/api/v2/pokemon?offset=${counter}&limit=20`
   pokeApi();
-  disable(contador);
-  indiceListado(contador);
+  disable(counter);
+  indiceListado(counter);
 });
 
 
@@ -38,8 +38,9 @@ async function pokeApi(){
       let respuesta = await fetch(URL);
       respuesta = await respuesta.json();
       mostrarNombres(respuesta.results);
+
   } catch (error) {
-      errorMsg.classList.toggle('ocultar')
+      errorMsg.classList.toggle('ocultar');
   } finally { 
     spinner.classList.toggle('hide'); 
   }
@@ -57,9 +58,11 @@ async function mostrarNombres(pokemons) {
       <img src=' ${imagenPokemon.sprites.front_default} ' alt=' ${pokemon.name} ' />
       <h3> ${ pokemon.name } </h3>
     </div>`;
+    
   }
-  pokeCards.innerHTML = contenidoHTML;
+  pokeCards.innerHTML = contenidoHTML; 
 }
+
 
 async function pokeImagen(pokeURL){
   try{
@@ -68,8 +71,8 @@ async function pokeImagen(pokeURL){
   } catch (error){
     console.log(error)
   } 
-
 }
+
 
 
 /* Disable btns */
@@ -80,10 +83,11 @@ function disable(contador){
     previousBtn.removeAttribute('disabled');
   }
 }
-disable(contador);
+disable(counter);
 
 /* Indice del listado */
 function indiceListado(contador){
   listado.textContent = `Pokemons del ${contador + 1} al ${contador + 20}`;
 }
-indiceListado(contador);
+indiceListado(counter);
+
